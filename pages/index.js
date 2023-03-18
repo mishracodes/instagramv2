@@ -27,7 +27,7 @@ export default function Home() {
         </div>
 
         {/* modalbox */}
-        <Modal/>
+        {/* <Modal/> */}
       </main>
     </>
   )
