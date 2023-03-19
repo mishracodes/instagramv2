@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../Navbar/Footer'
 import Header from '../Navbar/Header'
+import { useSession, signIn } from "next-auth/react"
 
 const Dashboard = (props) => {
-
+    const { data: session } = useSession()
     const [data, setData] = useState(null)
     const [meme, setMeme] = useState(null)
     const [isLoading, setLoading] = useState(false)
@@ -39,7 +40,7 @@ const Dashboard = (props) => {
 
 
             <div className='max-w-xl flex justify-center lg:max-w-4xl'>
-            <Header/>
+            <Header session={session} signIn={signIn}/>
 
                 {/* storyfeed */}
                 <div className='w-full lg:mx-auto lg:w-3/5'>
@@ -71,14 +72,14 @@ const Dashboard = (props) => {
                                 </div>
 
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                     </svg>
 
                                 </div>
                             </div>
                             <div className='bg-black w-full flex justify-center'>
-                                <img src={e.url} classNam='sm:w-full'/>
+                                <img src={e.url} className='sm:w-full'/>
 
                             </div>
 
@@ -89,12 +90,12 @@ const Dashboard = (props) => {
                                     </div>
 
 
-                                    <div className='p-2 cursor-pointer'><svg aria-label="Comment" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Comment</title><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+                                    <div className='p-2 cursor-pointer'><svg aria-label="Comment" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Comment</title><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path></svg></div>
 
 
-                                    <div className='p-2 cursor-pointer'><svg aria-label="Share Post" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Share Post</title><line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon></svg></div>
+                                    <div className='p-2 cursor-pointer'><svg aria-label="Share Post" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Share Post</title><line fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></polygon></svg></div>
                                 </div>
-                                <div className='p-2 cursor-pointer'><svg aria-label="Save" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Save</title><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg></div>
+                                <div className='p-2 cursor-pointer'><svg aria-label="Save" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Save</title><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polygon></svg></div>
                             </div>
 
                             <p className='text-sm'>Liked by pandey_premchandra and 127,077 others </p>
@@ -127,8 +128,8 @@ const Dashboard = (props) => {
                                 </div>
 
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                     </svg>
 
                                 </div>
@@ -145,12 +146,12 @@ const Dashboard = (props) => {
                                     </div>
 
 
-                                    <div className='p-2 cursor-pointer'><svg aria-label="Comment" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Comment</title><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+                                    <div className='p-2 cursor-pointer'><svg aria-label="Comment" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Comment</title><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path></svg></div>
 
 
-                                    <div className='p-2 cursor-pointer'><svg aria-label="Share Post" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Share Post</title><line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon></svg></div>
+                                    <div className='p-2 cursor-pointer'><svg aria-label="Share Post" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Share Post</title><line fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></polygon></svg></div>
                                 </div>
-                                <div className='p-2 cursor-pointer'><svg aria-label="Save" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Save</title><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg></div>
+                                <div className='p-2 cursor-pointer'><svg aria-label="Save" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Save</title><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polygon></svg></div>
                             </div>
 
                             <p className='text-sm'>Liked by pandey_premchandra and 127,077 others </p>
@@ -183,8 +184,8 @@ const Dashboard = (props) => {
                                 </div>
 
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                     </svg>
 
                                 </div>
@@ -201,12 +202,12 @@ const Dashboard = (props) => {
                                     </div>
 
 
-                                    <div className='p-2 cursor-pointer'><svg aria-label="Comment" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Comment</title><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+                                    <div className='p-2 cursor-pointer'><svg aria-label="Comment" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Comment</title><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path></svg></div>
 
 
-                                    <div className='p-2 cursor-pointer'><svg aria-label="Share Post" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Share Post</title><line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon></svg></div>
+                                    <div className='p-2 cursor-pointer'><svg aria-label="Share Post" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Share Post</title><line fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></polygon></svg></div>
                                 </div>
-                                <div className='p-2 cursor-pointer'><svg aria-label="Save" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Save</title><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg></div>
+                                <div className='p-2 cursor-pointer'><svg aria-label="Save" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Save</title><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polygon></svg></div>
                             </div>
 
                             <p className='text-sm'>Liked by pandey_premchandra and 127,077 others </p>
@@ -227,17 +228,17 @@ const Dashboard = (props) => {
                 {/* rightsidebar */}
                 <div className='hidden w-2/5 ml-16 pt-8 lg:block'>
                     <div className='flex justify-between px-2 py-2'>
-                        <div className='flex gap-1 items-center'>
-                            <img src='https://cdn-s2.toolzu.com/media/314505486_433489675626925_4772596788499483558_n.jpg?url=https%3A%2F%2Fscontent.cdninstagram.com%2Fv%2Ft51.2885-19%2F314505486_433489675626925_4772596788499483558_n.jpg%3Fstp%3Ddst-jpg_s150x150%26_nc_ht%3Dinstagram.fisb13-1.fna.fbcdn.net%26_nc_cat%3D101%26_nc_ohc%3Di97hQIqZZJsAX-97LvI%26edm%3DAOQ1c0wBAAAA%26ccb%3D7-5%26oh%3D00_AfBXC-4eP4QafRQ47YLGkpo-Vj8cTm17Wm4euBogqhIk3g%26oe%3D6416886D%26_nc_sid%3D8fd12b&time=1678820400&key=772abf22248f7fac0469607f69981cf5' className='inline-block h-12 w-12 rounded-full ring-2 ring-pink-600' alt="" />
+                        {session&&<div className='flex gap-1 items-center'>
+                            <img src={session.user.image} className='inline-block h-12 w-12 rounded-full ring-2 ring-pink-600' alt="" />
                             <div className='ml-3'>
                                 <div className='flex gap-1'>
-                                    <p className='text-xs font-medium'>mishra.codes</p>
+                                    <p className='text-xs font-medium'>{session.user.name.toLowerCase().split(' ').join('')}</p>
                                 </div>
-                                <p className='text-xs text-gray-500'>Amit Kumar Mishra</p>
+                                <p className='text-xs text-gray-500'>{session.user.name}</p>
 
                             </div>
 
-                        </div>
+                        </div>}
 
 
                         <div className='text-xs'>
@@ -277,7 +278,7 @@ const Dashboard = (props) => {
                     </div>
                 </div>
             </div>
-          <Footer/>
+         {session&& <Footer session={session}/>}
 
         </div>
     )
