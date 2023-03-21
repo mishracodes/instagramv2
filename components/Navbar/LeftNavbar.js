@@ -97,7 +97,12 @@ const LeftNavbar = () => {
             </ul>
             <div className=' bottom-0 left-0 right-0  py-20' >
                 
-                    <Dropdown signOut={signOut} session={session} signIn={signIn}/>
+                    <Dropdown signOut={signOut} session={session} signIn={signIn} posStart='left'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <span className="hidden xl:inline-block ml-3 whitespace-nowrap">More</span>
+                    </Dropdown>
                 </div>
 
 

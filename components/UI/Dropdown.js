@@ -3,15 +3,13 @@ import { Menu, Transition } from '@headlessui/react'
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
-const Dropdown = ({signOut,session,signIn}) => {
+const Dropdown = (props) => {
+  const {signOut,session,signIn,posStart}=props
   return (
     <Menu as="div" className="relative  text-left">
     <div>
       <Menu.Button className='w-full flex items-center justify-center xl:justify-start p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                    <span className="hidden xl:inline-block ml-3 whitespace-nowrap">More</span>
+      {props.children}
 
       </Menu.Button>
 
@@ -26,7 +24,7 @@ const Dropdown = ({signOut,session,signIn}) => {
       leaveFrom="transform scale-100 opacity-100"
       leaveTo="transform scale-95 opacity-0"
     >
-      <Menu.Items className="absolute left-0 bottom-10 z-10 mt-2 w-56 origin-bottom-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+      <Menu.Items className={`absolute ${posStart}-0 bottom-10 z-10 mt-2 w-56 origin-bottom-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
         <div className="py-1">
           <Menu.Item>
             {({ active }) => (

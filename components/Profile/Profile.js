@@ -3,9 +3,7 @@ import Header from '../Navbar/Header'
 
 const Profile = () => {
   return (
-    <div>
-      <Header />
-      <main className='max-w-4xl  mx-auto px-6 pt-8'>
+      <main className='max-w-4xl  mx-auto px-6 pt-8  mt-16 md:mt-2 '>
         <div className='flex mb-8'>
           <div className='w-1/3 flex justify-center'>
             <img src='https://media.licdn.com/dms/image/C4E03AQE01sctdzZb2A/profile-displayphoto-shrink_400_400/0/1623473624103?e=1684972800&v=beta&t=Mu7XeaMAKBsvfaO-UU5C_zol9QmKzRGAxkd2fOY1Qp4' className='w-[150px] h-[150px] rounded-full' />
@@ -71,12 +69,11 @@ const Profile = () => {
                 <span className='mx-2'>Contact uploading and non-users</span>
                 <span className='mx-2'>Meta Verified</span>
             </div>
-            <div className='text-xs text-gray-400 text-center mt-5'>
+            <div className='text-xs text-gray-400 text-center mt-5 pb-16 md:pb-1'>
                 <span className='mx-3'>English (UK)</span>
                 <span className='mx-3'>© 2023 Instagram from Meta</span>
             </div>
       </main>
-    </div>
   )
 }
 

@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import LeftNavbar from '@/components/Navbar/LeftNavbar'
-import Dashboard from '@/components/Dashboard/Dashboard'
 import { useSession } from "next-auth/react"
 import { getServerSession } from 'next-auth'
 import { authOptions } from "./api/auth/[...nextauth]";
+import Navigation from '@/components/Navigation/Navigation'
+import Dashboard from '@/components/Dashboard/Dashboard';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,16 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* //dashboard  */}
-      {session&&<main className='flex'>
-        <div className='hidden top-0 left-0 z-40 w-18 border-r h-full px-2 py-2 xl:w-56 md:block md:fixed'>
-          <LeftNavbar />
-        </div>
-
-        <div className='flex md:ml-20 grow h-screen xl:ml-56'>
-          <Dashboard/>
-        </div>
-
-      </main>}
+     <Navigation><Dashboard/></Navigation>
 
       
 
