@@ -19,8 +19,8 @@ const Navigation = (props) => {
 
         <>
 
-            {session && <main className='flex'>
-                <div className='hidden top-0 left-0 z-40 w-18 border-r h-full px-2 py-2 xl:w-56 md:block md:fixed'>
+            {session ? <main className='flex'>
+                <div className='hidden top-0 left-0 z-1 w-18 border-r h-full px-2 py-2 xl:w-56 md:block md:fixed'>
                     <LeftNavbar />
                 </div>
 
@@ -39,8 +39,19 @@ const Navigation = (props) => {
                     </div>
                 </div>
 
-            </main>}
+            </main> :
+                <div className='w-full  h-full flex flex-col justify-center '>
+                    <Header session={session} signIn={signIn} />
 
+
+                    <div className='max-w-xl mx-auto lg:max-w-4xl'>
+
+                        {props.children}
+
+                    </div>
+                </div>
+
+            }
 
         </>
 

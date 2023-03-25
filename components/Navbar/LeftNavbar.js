@@ -1,12 +1,19 @@
 import React from 'react'
 import Dropdown from '../UI/Dropdown'
 import { useSession, signIn, signOut } from "next-auth/react"
+import { useDispatch } from 'react-redux'
+import { toogleCreateModal } from '@/store/slices/modalReducer'
+import Modal from '../Modal/Modal'
 
 const LeftNavbar = () => {
     const { data: session } = useSession()
-    
+    const dispatch = useDispatch()
+
+
     return (
         <>
+      <Modal/>
+
             {/* logo */}
             <a href="/" className="hidden items-center px-3 pt-6 pb-4 mb-5 xl:flex">
                 <svg aria-label="Instagram" className="_ab6-" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="29" role="img" viewBox="32 4 113 32" width="103">
@@ -60,30 +67,29 @@ const LeftNavbar = () => {
 
                     </a>
                 </li>
-                <li>
+                <li  className='relative'>
+                <div className='w-4 h-4 flex justify-center items-center bg-[#ff3040] rounded-full absolute top-2 left-6 text-xs text-white font'>6</div>
+
                     <a href="#" className="flex items-center p-3 my-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-                        </svg>
+                        <svg aria-label="Messenger" className="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Messenger</title><path d="M12.003 2.001a9.705 9.705 0 1 1 0 19.4 10.876 10.876 0 0 1-2.895-.384.798.798 0 0 0-.533.04l-1.984.876a.801.801 0 0 1-1.123-.708l-.054-1.78a.806.806 0 0 0-.27-.569 9.49 9.49 0 0 1-3.14-7.175 9.65 9.65 0 0 1 10-9.7Z" fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="1.739"></path><path d="M17.79 10.132a.659.659 0 0 0-.962-.873l-2.556 2.05a.63.63 0 0 1-.758.002L11.06 9.47a1.576 1.576 0 0 0-2.277.42l-2.567 3.98a.659.659 0 0 0 .961.875l2.556-2.049a.63.63 0 0 1 .759-.002l2.452 1.84a1.576 1.576 0 0 0 2.278-.42Z" fillRule="evenodd"></path></svg>
 
                         <span className="hidden xl:inline-block flex-1 ml-3 whitespace-nowrap">Messages</span>
                     </a>
                 </li>
-                <li>
+                <li className='relative'>
+                    <div className='w-2 h-2 bg-[#ff3040] rounded-full absolute top-3 left-[30px]'></div>
                     <a href="#" className="flex items-center p-3 my-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
+                    <svg aria-label="Notifications" className="_ab6-" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"></path></svg>
 
                         <span className="hidden xl:inline-block flex-1 ml-3 whitespace-nowrap">Notifications</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" className="flex items-center p-3 my-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div onClick={() => { dispatch(toogleCreateModal({ data: 'CteateModal' })) }} className="cursor-pointer flex items-center p-3 my-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                         <svg aria-label="New post" className="_ab6-" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path><line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="6.545" x2="17.455" y1="12.001" y2="12.001"></line><line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="12.003" x2="12.003" y1="6.545" y2="17.455"></line></svg>
 
                         <span className="hidden xl:inline-block flex-1 ml-3 whitespace-nowrap">Create</span>
-                    </a>
+                    </div>
                 </li>
                 {session && <li>
                     <a href="#" className="flex items-center p-3 my-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -92,18 +98,18 @@ const LeftNavbar = () => {
                     </a>
                 </li>}
                 {/* /more  */}
-                
+
 
             </ul>
             <div className=' bottom-0 left-0 right-0  py-20' >
-                
-                    <Dropdown signOut={signOut} session={session} signIn={signIn} posStart='left'>
+
+                <Dropdown signOut={signOut} session={session} signIn={signIn} posStart='left'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                     <span className="hidden xl:inline-block ml-3 whitespace-nowrap">More</span>
-                    </Dropdown>
-                </div>
+                </Dropdown>
+            </div>
 
 
 
